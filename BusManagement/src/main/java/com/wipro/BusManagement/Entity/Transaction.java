@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String transactionId;
+    private Long transactionId;
 
     private Double transactionAmount;
 
@@ -17,7 +17,7 @@ public class Transaction {
 
     private Date timeStamp;
 
-    public Transaction(String transactionId, Double transactionAmount, Boolean isCredit, Date timeStamp) {
+    public Transaction(Long transactionId, Double transactionAmount, Boolean isCredit, Date timeStamp) {
         super();
         this.transactionId = transactionId;
         this.transactionAmount = transactionAmount;
@@ -25,11 +25,11 @@ public class Transaction {
         this.timeStamp = timeStamp;
     }
 
-    public String getTransactionId() {
+    public Long getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(String transactionId) {
+    public void setTransactionId(Long transactionId) {
         this.transactionId = transactionId;
     }
 

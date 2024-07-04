@@ -23,10 +23,11 @@ public class Booking {
     @JoinColumn(name = "busId", nullable = false)
     private Bus bus;
 
-    @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+//    private User user;
 
+	private Long userId;
     private Integer seatNo;
 
     private LocalDateTime dateTime; // Consider using LocalDateTime for date and time
@@ -41,12 +42,12 @@ public class Booking {
     	
     }
 
-	public Booking(Long bookingId, Bus bus, User user, Integer seatNo, LocalDateTime dateTime, LocalDate dateOfBooking,
+	public Booking(Long bookingId, Bus bus, Long userId, Integer seatNo, LocalDateTime dateTime, LocalDate dateOfBooking,
 			Integer age, String name) {
 		super();
 		this.bookingId = bookingId;
 		this.bus = bus;
-		this.user = user;
+		this.userId = userId;
 		this.seatNo = seatNo;
 		this.dateTime = dateTime;
 		this.dateOfBooking = dateOfBooking;
@@ -66,17 +67,18 @@ public class Booking {
 		return bus;
 	}
 
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
 	public void setBus(Bus bus) {
 		this.bus = bus;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	public Integer getSeatNo() {
 		return seatNo;

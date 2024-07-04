@@ -1,101 +1,103 @@
 package com.wipro.BusManagement.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users")
 
 public class User {
-	
-	 	@Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long userId;
 
-	    private String password;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
 
-	    private String name;
+    private String password;
 
-	    private boolean isAdmin;
+    private String name;
 
-	    private boolean isBusOperator;
+    private boolean isAdmin;
 
-	    private boolean isConsumer;
+    private boolean isBusOperator;
 
-	    private Double balance;
-	    
-	    public User() {
-	    	
-	    }
+    private boolean isConsumer;
 
-		public User(Long userId, String password, String name, boolean isAdmin, boolean isBusOperator,
-				boolean isConsumer, Double balance) {
-			super();
-			this.userId = userId;
-			this.password = password;
-			this.name = name;
-			this.isAdmin = isAdmin;
-			this.isBusOperator = isBusOperator;
-			this.isConsumer = isConsumer;
-			this.balance = balance;
-		}
+    private Double balance;
 
-		public Long getUserId() {
-			return userId;
-		}
+    @OneToMany
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    private List<Booking> booking;
 
-		public void setUserId(Long userId) {
-			this.userId = userId;
-		}
+    public User() {
 
-		public String getPassword() {
-			return password;
-		}
+    }
 
-		public void setPassword(String password) {
-			this.password = password;
-		}
+    public User( String password, String name, boolean isAdmin, boolean isBusOperator,
+                boolean isConsumer, Double balance) {
+        super();
+//        this.userId = userId;
+        this.password = password;
+        this.name = name;
+        this.isAdmin = isAdmin;
+        this.isBusOperator = isBusOperator;
+        this.isConsumer = isConsumer;
+        this.balance = balance;
+    }
 
-		public String getName() {
-			return name;
-		}
+    public Long getUserId() {
+        return userId;
+    }
 
-		public void setName(String name) {
-			this.name = name;
-		}
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
-		public boolean isAdmin() {
-			return isAdmin;
-		}
+    public String getPassword() {
+        return password;
+    }
 
-		public void setAdmin(boolean isAdmin) {
-			this.isAdmin = isAdmin;
-		}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-		public boolean isBusOperator() {
-			return isBusOperator;
-		}
+    public String getName() {
+        return name;
+    }
 
-		public void setBusOperator(boolean isBusOperator) {
-			this.isBusOperator = isBusOperator;
-		}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-		public boolean isConsumer() {
-			return isConsumer;
-		}
+    public boolean isAdmin() {
+        return isAdmin;
+    }
 
-		public void setConsumer(boolean isConsumer) {
-			this.isConsumer = isConsumer;
-		}
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
 
-		public Double getBalance() {
-			return balance;
-		}
+    public boolean isBusOperator() {
+        return isBusOperator;
+    }
 
-		public void setBalance(Double balance) {
-			this.balance = balance;
-		}
+    public void setBusOperator(boolean isBusOperator) {
+        this.isBusOperator = isBusOperator;
+    }
+
+    public boolean isConsumer() {
+        return isConsumer;
+    }
+
+    public void setConsumer(boolean isConsumer) {
+        this.isConsumer = isConsumer;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
 }
