@@ -1,7 +1,5 @@
 package com.wipro.BusManagement.Model;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class BookingDetails {
@@ -13,6 +11,7 @@ public class BookingDetails {
     private String name;
 
     private Integer age;
+
     public UserDetail getUser() {
         return user;
     }

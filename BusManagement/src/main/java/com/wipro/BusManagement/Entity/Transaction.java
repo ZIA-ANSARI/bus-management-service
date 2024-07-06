@@ -1,8 +1,8 @@
 package com.wipro.BusManagement.Entity;
 
-import java.util.Date;
-
 import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "transaction")
